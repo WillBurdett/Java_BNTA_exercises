@@ -2,7 +2,7 @@ package com.exercise_will.week02.day2.classes_files_exercises.Exercise5;
 
 public class Exercise5 {
 
-//    Create a survey questionnaire application that saves users answers to a file.
+//    Create a survey/questionnaire application that saves users answers to a file.
 //    Think about the classes that you might need.
 //    For example, Questionnaire - id, createdAt, List of Questions. Person - name, email, dob.
 
@@ -19,22 +19,10 @@ public class Exercise5 {
 
         // Add questionnaire to completed List
 
+        // TO-DOs:
+        // - use enum for Gender
+        // - make user-input error proof
+        // - load/save completed lists from file
 
-
-
-
-//        //  READS FILE IN CONSOLE
-//
-//        try {
-//            Scanner scanner = new Scanner(file);
-//            while (scanner.hasNextLine()) {
-//                String data = scanner.nextLine();
-//                System.out.println(data);
-//            }
-//            scanner.close();
-//        } catch (FileNotFoundException e) {
-//            System.out.println("An error occurred.");
-//            e.printStackTrace();
-//        }
     }
 }

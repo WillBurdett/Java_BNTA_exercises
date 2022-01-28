@@ -20,8 +20,9 @@ public class QuestionnaireService {
                                 + " by " + questionnaireConfig.questionnaires[i].getCompanyName());
                 }
                 Scanner scanner = new Scanner(System.in);
-                int input = scanner.nextInt();
                 try {
+                int input = scanner.nextInt();
+
                         PersonService.createPerson(questionnaireConfig.questionnaires[input-1]);
                 } catch (Exception e){
                         System.out.println("Invalid selection.");

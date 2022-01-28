@@ -1,5 +1,7 @@
 package com.exercise_will.week02.day2.classes_files_exercises.Exercise5;
 
+import com.exercise_will.week02.day5.workbook.SkinColour;
+
 import java.util.Objects;
 
 public class Person {

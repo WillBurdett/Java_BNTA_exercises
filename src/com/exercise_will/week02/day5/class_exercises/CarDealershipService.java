@@ -26,4 +26,35 @@ public class CarDealershipService {
         }
     }
 
+    public static Car findCar(String id, CarDealership carDealership){
+        boolean carFound = false;
+        for (Car c : carDealership.getCarsInStock()){
+            if (id.toUpperCase().equals(c.getManufacturer().toString())){
+                carFound = true;
+                System.out.println(c);
+                return c;
+            }
+        }
+        if (carFound == false){
+            System.out.println(carDealership.getName() + " does not have that car in stock.");
+        }
+        return null;
+    }
+
+    public static void removeCar(String id, CarDealership carDealership){
+        boolean carFound = false;
+        for (int i=0; i < carDealership.getCarsInStock().length; i++){
+            try {
+                if (carDealership.getCarsInStock()[i].getManufacturer().toString().equals(id.toUpperCase())){
+                    carDealership.getCarsInStock()[i] = null;
+                    carFound = true;
+                }
+            } catch (Exception e){
+                System.out.println("Empty space");
+            }
+        }
+        if (carFound == false){
+            System.out.println(carDealership.getName() + " does not have that car in stock.");
+        }
+    }
 }

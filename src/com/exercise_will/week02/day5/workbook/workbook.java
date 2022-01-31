@@ -50,6 +50,36 @@ public class workbook {
         // because everything is in the Object class
         // all objects have access to the parents (Object class) methods
 
+        // this.name = name
+        // this is referring to the current instance of that object, the first name is the property
+        // the second name is the arg passed into the constructor
+
+        // you can have as many constructors as you want e.g. fewer values for a baby
+        // constructors are ideal for setting initial values
+        // setters allow you to update individual values
+
+        // 3 constructors is good practice:
+        // one for default (no values), two for no id or nullable field, three for all values
+
+        // static property, class or field means it belongs to the class itself and not the objects
+        // Person public class {
+        // public static int count = 0;
+        // }
+        // count can't be accessed through objects you create,
+        // but can be accessed though the class 'Person'.
+
+        // public class Main {
+        // public static void main(String[] args)}
+        // this must use static as we don't have/need an instance of
+        // there isn't an instance of type Main,
+        // but because it's static and belongs to the class (and not an instance)
+        // it can run.
+        // add static to methods because otherwise you'd need to create an instance (object)
+        // e.g. Main main = new Main();
+
+        // we don't want statics all around
+        // this is for practice
+
 
         System.out.println(alimaa.equals(marcy));
 

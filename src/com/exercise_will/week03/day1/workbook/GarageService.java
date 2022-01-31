@@ -121,13 +121,13 @@ public class GarageService {
                 addCar(outside, car);
             }
         }
-        System.out.println("Garage " + garage.getGarageNumber() + " has been cleaned:\n" + garage);
+        System.out.println("Garage " + garage.getGarageNumber() + " has been cleaned:\n" + Arrays.toString(garage.getCars()));
         for (Car car : outside.getCars()){
             if (car != null){
                 removeCar(outside, car);
                 addCar(garage, car);
             }
         }
-        System.out.println("Garage " + garage.getGarageNumber() + " has been re-populated:\n" + garage);
+        System.out.println("Garage " + garage.getGarageNumber() + " has been re-populated:\n" + Arrays.toString(garage.getCars()));
     }
 }

@@ -118,24 +118,38 @@ public class GarageDAO {
                 scanner.nextLine();
                 while (scanner.hasNext()) {
                     String carStr = scanner.nextLine();
-                    if (carStr.equalsIgnoreCase("Free Space.")){
-                        System.out.println("Car not in garage.");
-                        return null;
-                    } // save next line as String.
+                    if (carStr.equalsIgnoreCase("Free space.")){
+                        continue;
+                    } else {
                         String[] split = carStr.split(",");
-                        System.out.println(Arrays.toString(split));
                         Car car = new Car(split[0], split[1], Boolean.parseBoolean(split[2])); // how to grab a boolean
                         // System.out.println(car.toStringCsv());
                         if (car.getRegNumber().equals(regNum)) {
                             return car;
                         }
                     }
+                }
 
             } catch (Exception e) {
                 System.out.println(e.getMessage() + ": when attempting to read " + fileName);
             }
-            System.out.println("Car not found.");
+            System.out.println("Car not in Garage " + garage.getGarageNumber() + ".");
             return null;
+        }
+
+        public void deleteByRegNum(Garage garage, String regNum){
+            Car car = findByRegNum(garage, regNum);
+            if (car == null){
+                System.out.println("Car not in Garage " + garage.getGarageNumber() + ".");
+            } else {
+                for (int i = 0; i < garage.getCars().length; i++) {
+                    if (garage.getCars()[i].getRegNumber().equalsIgnoreCase(regNum) && garage.getCars()[i] != null) {
+                        garage.getCars()[i] = null;
+                        break;
+                    }
+                }
+                postMapping(garage);
+            }
         }
     }
 

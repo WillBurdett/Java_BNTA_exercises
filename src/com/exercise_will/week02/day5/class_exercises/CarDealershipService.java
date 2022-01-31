@@ -16,7 +16,7 @@ public class CarDealershipService {
         boolean carAdded = false;
         for (int i = 0; i < carDealership.getCarsInStock().length; i++){
             if (carDealership.getCarsInStock()[i] == null){
-                carDealership.getCarsInStock()[i] = car;
+                carDealership.getCarsInStock()[i] = car; // getter because you don't want to pass in a new array
                 carAdded = true;
                 break;
             }

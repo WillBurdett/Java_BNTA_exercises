@@ -49,6 +49,10 @@ public class Car {
                 '}';
     }
 
+    public String toStringCsv() {
+        return  make + "," + regNumber + "," + isElectric;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

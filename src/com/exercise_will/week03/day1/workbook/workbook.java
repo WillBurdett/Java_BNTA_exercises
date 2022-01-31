@@ -25,6 +25,10 @@ public class workbook {
     // 2) Service - a class to perform business logic (code that is invoked into action when an event occurs)
     // 3) classes tha interact with our database
 
+    // fn + f2 takes you to the error in intellij
+
+    // shift + command + v creates instance out of new Car(date,date) etc.
+
     public static void main(String[] args) {
 
         // creating cars
@@ -119,6 +123,22 @@ public class workbook {
         // clean garage
        garageService.cleanGarage(garage);
 
+        // writing stored cars data to file
+        GarageDAO garageDAO = new GarageDAO();
+        garageDAO.postMapping(garage);
 
+        // reading garage
+        garageDAO.readGarage(garage);
+
+
+        System.out.println("------------------------");
+
+        // findByManufacturer
+        System.out.println(garageDAO.findByManufacturer(garage, "bmw"));
+
+        System.out.println("------------------------");
+
+        //findByRegNum
+        System.out.println(garageDAO.findByRegNum(garage, "0905"));
     }
 }

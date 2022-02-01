@@ -1,8 +1,8 @@
-package com.exercise_will.week03.day1.workbook;
+package com.exercise_will.week03.day1.garage_classes_exercises;
 
 import java.util.Arrays;
 
-public class workbook {
+public class Main {
     // static property, class or field means it belongs to the class itself and not the objects
     // Person public class {
     // public static int count = 0;

@@ -1,11 +1,10 @@
-package com.exercise_will.week03.day1.workbook;
+package com.exercise_will.week03.day1.garage_classes_exercises;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,7 +12,7 @@ public class GarageDAO {
 
     public void postMapping(Garage garage) {
 
-        String dirName = "/Users/williamburdett/Desktop/Intellij/IdeaProjects/BNTA_updated/src/com/exercise_will/week03/day1/workbook";
+        String dirName = "/Users/williamburdett/Desktop/Intellij/IdeaProjects/BNTA_updated/src/com/exercise_will/week03/day1/garage_classes_exercises";
         String fileName = "garageDB_" + garage.getGarageNumber() + ".txt";
 
         File file = new File(dirName, fileName);
@@ -50,7 +49,7 @@ public class GarageDAO {
 
     public void readGarage(Garage garage) {
 
-        String dirName = "/Users/williamburdett/Desktop/Intellij/IdeaProjects/BNTA_updated/src/com/exercise_will/week03/day1/workbook";
+        String dirName = "/Users/williamburdett/Desktop/Intellij/IdeaProjects/BNTA_updated/src/com/exercise_will/week03/day1/garage_classes_exercises";
         String fileName = "garageDB_" + garage.getGarageNumber() + ".txt";
 
         File file = new File(dirName, fileName);
@@ -73,7 +72,7 @@ public class GarageDAO {
     }
 
     public List<Car> findByManufacturer(Garage garage, String make) {
-        String dirName = "/Users/williamburdett/Desktop/Intellij/IdeaProjects/BNTA_updated/src/com/exercise_will/week03/day1/workbook";
+        String dirName = "/Users/williamburdett/Desktop/Intellij/IdeaProjects/BNTA_updated/src/com/exercise_will/week03/day1/garage_classes_exercises";
         String fileName = "garageDB_" + garage.getGarageNumber() + ".txt";
 
         File file = new File(dirName, fileName);
@@ -105,7 +104,7 @@ public class GarageDAO {
     }
 
     public Car findByRegNum(Garage garage, String regNum) {
-        String dirName = "/Users/williamburdett/Desktop/Intellij/IdeaProjects/BNTA_updated/src/com/exercise_will/week03/day1/workbook";
+        String dirName = "/Users/williamburdett/Desktop/Intellij/IdeaProjects/BNTA_updated/src/com/exercise_will/week03/day1/garage_classes_exercises";
         String fileName = "garageDB_" + garage.getGarageNumber() + ".txt";
 
         File file = new File(dirName, fileName);

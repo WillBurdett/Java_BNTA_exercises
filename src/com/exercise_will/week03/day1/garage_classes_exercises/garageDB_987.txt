@@ -1,4 +1,4 @@
 Data for Michael's Garage No.987
-Free space.
+Honda,1234,false
 BMW,0909,true
 Free space.

@@ -1,4 +1,4 @@
-package com.exercise_will.week03.day1.workbook;
+package com.exercise_will.week03.day1.garage_classes_exercises;
 
 import java.util.Arrays;
 import java.util.Objects;

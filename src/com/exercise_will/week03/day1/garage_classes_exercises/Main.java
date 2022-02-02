@@ -49,6 +49,11 @@ public class Main {
                 "00PS",
                 true
         );
+        Car car4 = new Car(
+                "Saab",
+                "1995",
+                false
+        );
 
         // Person who owns the Honda
         Car[] connieCars = {car};

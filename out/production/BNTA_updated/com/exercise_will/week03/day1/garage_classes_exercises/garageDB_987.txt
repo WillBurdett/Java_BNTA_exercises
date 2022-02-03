@@ -1,4 +1,0 @@
-Data for Michael's Garage No.987
-Free space.
-BMW,0909,true
-Free space.

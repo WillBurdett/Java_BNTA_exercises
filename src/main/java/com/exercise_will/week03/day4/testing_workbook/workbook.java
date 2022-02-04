@@ -11,8 +11,13 @@ public class workbook {
 
     // Maven is a software management and comprehension tool.
     // It's based in pom.xml
+    // allows us to bring in other dependencies
 
     // if Adib has his own random jokes generator it'd be under Adib.packages
+
+    // unit testing would take a piece of code (e.g. a method) and test it in isolation
+    // we can't test private methods in isolation as we need to access it through the class
+    // private tests are not normally tested
 
 
     // ----------------------------------

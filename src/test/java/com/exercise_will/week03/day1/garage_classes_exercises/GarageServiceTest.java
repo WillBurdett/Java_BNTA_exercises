@@ -16,9 +16,7 @@ class GarageServiceTest {
         Person person = new Person("Connie", 24, "", cars);
         Garage garage = new Garage(person, 10, 2, true);
 
-
         // When
-
         garageService.addCar(garage,car);
 
         //Then

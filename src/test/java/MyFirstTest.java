@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class MyFirstTest { // this play button will run all tests
 
     // Assertj for better syntax
+    // allows you to perform
     // add to dependencies, reload
     // make sure to import: import static org.assertj.core.api.Assertions.assertThat;
 
@@ -23,5 +24,8 @@ public class MyFirstTest { // this play button will run all tests
 
         assertThat(result).isEqualTo(8);
         // expect: what it should do, value: the value we're getting
+
+        // right-click and run with coverage to see what you have and haven't tested
+
     }
 }

@@ -7,7 +7,9 @@ public class Exercise1 {
       Output should be reversed input
     */
     public static String reverseStr(String input){
-        if (input == null) return "You submitted an empty string.";
+        if (input == null) {
+            throw new NullPointerException("Input was null.");
+        }
         String[] inputArray = input.split("");
         String result = "";
         for (int i = inputArray.length - 1; i >= 0; i--) {

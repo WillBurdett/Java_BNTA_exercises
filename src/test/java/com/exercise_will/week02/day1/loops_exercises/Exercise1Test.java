@@ -6,9 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.time.LocalDate;
-
 import static org.assertj.core.api.Assertions.assertThat; // make sure to import this
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
@@ -38,13 +37,42 @@ class Exercise1Test {
     }
 
     @Test
+    void canHandleNulls() {
+        // Given
+        String input = null;
+
+        // When
+        assertThatThrownBy(() -> {underTest.reverseStr(input); })
+                // Then
+                .hasMessage("Input was null.");
+    }
+
+    @Test
+    void canHandleEmptyStrings() {
+        // Given
+        String input = "";
+
+        // When
+        String actual = underTest.reverseStr(input);
+
+        // Then
+        String expected = "";
+        assertThat(actual).isEqualTo(expected);
+    }
+
+
+
+
+
+
+
+    @Test
     void exampleMock(){
 
         // WITHOUT MOCK
         Person will = new Person("Will", 26, "will@gmail.com", new Car[0]);
 
         System.out.println(will.getName());
-
 
         // WITH MOCK
          Person marcy = Mockito.mock(Person.class);
@@ -58,8 +86,6 @@ class Exercise1Test {
 
         // -----------------------
 
-
-
         // sets ages
         marcy.setAge(24);
         // checks that the age is set to 24
@@ -72,5 +98,6 @@ class Exercise1Test {
         // this is testing that a method was called with a certain value
         // e.g. if you wanted to addFlight(), this would normally want to save to file.
         // but you'd like to verify saveToFile() was called with a certain value
+
     }
 }

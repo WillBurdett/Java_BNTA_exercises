@@ -1,19 +1,35 @@
 package com.exercise_will.week04.exercises;
 
+import java.util.InputMismatchException;
 import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Exercise3 {
 
-    public static boolean bracketsMatch(String input){
+    public boolean bracketsMatch(String input){
+        if (input == null){
+            throw new NullPointerException("Input was null.");
+        }
         String[] arr = input.replaceAll(" ", "").split("");
         Pattern pattern = Pattern.compile("[\\[\\](){}]");
         Stack<String> stack = new Stack<>();
+
+        boolean containsBracket = false;
+        for (String s : arr){
+            Matcher matcher = pattern.matcher(s);
+            if (matcher.find()){
+                containsBracket = true;
+            }
+        }
+        if (!containsBracket){
+            throw new InputMismatchException("No brackets in input.");
+        }
+
         for (String s : arr) {
             Matcher matcher = pattern.matcher(s);
             if (!matcher.find()){
-                return false;
+                continue;
             } else if (s.equals("(") || s.equals("{") || s.equals("[")){
                 stack.push(s);
             } else if (s.equals(")")) {
@@ -30,13 +46,11 @@ public class Exercise3 {
                 }
             }
         }
-        if (stack.isEmpty()){
-            return true;
-        }
-        return false;
+        return stack.isEmpty();
     }
 
     public static void main(String[] args) {
-        System.out.println(bracketsMatch("((({{{[]}}})))"));
+        Exercise3 exercise3 = new Exercise3();
+        System.out.println(exercise3.bracketsMatch("((({{{[]}}})))"));
     }
 }

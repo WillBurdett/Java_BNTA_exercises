@@ -28,7 +28,9 @@ public class Exercise3 {
 
         for (String s : arr) {
             Matcher matcher = pattern.matcher(s);
-            if (!matcher.find()){
+            if ((s.equals(")") || s.equals("}") || s.equals("]")) && stack.empty()){
+                return false;
+            } else if (!matcher.find()){
                 continue;
             } else if (s.equals("(") || s.equals("{") || s.equals("[")){
                 stack.push(s);

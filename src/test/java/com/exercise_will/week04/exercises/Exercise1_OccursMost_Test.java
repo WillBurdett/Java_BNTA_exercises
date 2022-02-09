@@ -71,6 +71,16 @@ class Exercise1_OccursMost_Test {
     }
 
     @Test
+    void canHandleOnlyEmptyStrings(){
+        // given
+        Exercise1 exercise1 = new Exercise1();
+        String[] input = {"", "", ""};
+        // when
+        assertThatThrownBy(() -> { exercise1.occursMost(input); }) // look up AssertJ
+                // Then
+                .hasMessage("Only empty strings were input.");
+    }
+    @Test
     void ignoresEmptyStrings(){
         // given
         Exercise1 exercise1 = new Exercise1();
@@ -83,7 +93,7 @@ class Exercise1_OccursMost_Test {
     }
 
     @Test
-    void ignoresEmptyWhiteSpaces(){
+    void ignoresEmptyWhiteSpacesButKeepsDeliberateSpaces(){
         // given
         Exercise1 exercise1 = new Exercise1();
         String[] input = {"  ", "    ", "hello you"};

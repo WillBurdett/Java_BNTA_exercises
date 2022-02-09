@@ -19,6 +19,9 @@ public class Exercise1 {
                 }
             }
         }
+        if (map.size() == 0){
+            throw new NullPointerException("Only empty strings were input.");
+        }
         int highestNum = 0;
         for (String s : map.keySet()) {
             if (map.get(s) > highestNum){
@@ -31,12 +34,11 @@ public class Exercise1 {
                 result.add(s);
             }
         }
-        System.out.println(result);
         return result;
     }
     public static void main(String[] args) {
         Exercise1 exercise1 = new Exercise1();
         String[] input = {"1","1","1","1","3","4","5","6","7","7","7","7","8","8"};
-        exercise1.occursMost(input);
+        System.out.println(exercise1.occursMost(input));
     }
 }

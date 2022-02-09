@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class Exercise3_Parenthesis_Test {
 
@@ -73,5 +72,16 @@ class Exercise3_Parenthesis_Test {
         assertThatThrownBy(() -> { exercise3.bracketsMatch(input); }) // look up AssertJ
                 // Then
                 .hasMessage("Input was null.");
+    }
+    @Test
+    void canHandleStartingWithAClosingBracket() {
+        // given
+        Exercise3 exercise3 = new Exercise3();
+        String input = "}()";
+        // when
+        boolean actual = exercise3.bracketsMatch(input);
+        // then
+        boolean expected = false;
+        assertThat(actual).isEqualTo(expected);
     }
 }

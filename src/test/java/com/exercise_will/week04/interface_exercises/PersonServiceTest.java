@@ -7,6 +7,7 @@ import org.mockito.Mockito;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
@@ -24,11 +25,8 @@ class PersonServiceTest {
         underTest = new PersonService(personDAO);
     }
 
-    /*
-        TODO: Test all these methods.
-        You might need to create additional methods. Check test coverage
-    */
-
+    //   TODO: Test all these methods.
+    //   You might need to create additional methods. Check test coverage
     //    Good luck :)
 
     @Test
@@ -56,6 +54,21 @@ class PersonServiceTest {
         // Then
         verify(personDAO).deletePerson(2);
     }
+
+    @Test
+    void canHandleDeletePersonThatDoesNotExist() {
+        // Given
+        List<Person> testPeople = new ArrayList<>();
+        Person expected = new Person(2, "Mark", 25);
+        testPeople.add(expected);
+        given(personDAO.getPeople()).willReturn(testPeople);
+        int id = 0;
+        // When
+        assertThatThrownBy(() -> { underTest.deletePerson(0); })
+                // Then
+                .hasMessage("person with id " + id + " not found");
+    }
+
 
     @Test
     void canGetPeopleFromDB() {
@@ -86,5 +99,18 @@ class PersonServiceTest {
 
         // Then
         assertThat(actual).isEqualTo(expected);
+    }
+    @Test
+    void canHandleFindIdThatDoesNotExist() {
+        // Given
+        List<Person> testPeople = new ArrayList<>();
+        Person expected = new Person(2, "Mark", 25);
+        testPeople.add(expected);
+        given(personDAO.getPeople()).willReturn(testPeople);
+        int id = 0;
+        // When
+        assertThatThrownBy(() -> { underTest.getPersonById(0); })
+                // Then
+                .hasMessage("person with id " + id + " not found");
     }
 }

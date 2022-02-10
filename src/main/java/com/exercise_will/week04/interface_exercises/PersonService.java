@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class PersonService {
+
     private final PersonDAO personDAO;
 
     public PersonService(PersonDAO personDAO) {
@@ -22,7 +23,6 @@ public class PersonService {
         if (exists) {
             throw new IllegalStateException("person with id " + person.getId() + " already exists");
         }
-
         personDAO.savePerson(person);
     }
 
@@ -41,6 +41,9 @@ public class PersonService {
     }
 
     public Optional<Person> getPersonById(int id) {
+        if (!doesPersonWithIdExists(id)){
+            throw new IllegalStateException("person with id " + id + " not found");
+        }
         return personDAO
                 .getPeople()
                 .stream()

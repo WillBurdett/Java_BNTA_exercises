@@ -8,8 +8,8 @@ public class Main {
         PersonService personService = new PersonService(personDAO);
 
         System.out.println(personService.getPeople());
-        personService.savePerson(new Person(3, "Nasir", 22));
-        System.out.println(personService.getPeople());
+
+        System.out.println(personDAO.getPersonById(1));
 
     }
 }

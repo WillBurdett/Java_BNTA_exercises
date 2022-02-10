@@ -15,7 +15,7 @@ public class PersonFileDB implements PersonDAO{
     public void savePerson(Person person) {
         // Read file to list. Append person. Write list to file (.StringCSV)
         List<Person> updated = new ArrayList<>();
-        for (Person p : updated) {
+        for (Person p : getPeople()) {
                 updated.add(p);
             }
         updated.add(person);
@@ -29,8 +29,6 @@ public class PersonFileDB implements PersonDAO{
             myWriter.flush();
             myWriter.close();
 
-            System.out.println(updated);
-
         } catch (Exception e){
             System.out.println("Error:" + e.getMessage());
         }
@@ -40,7 +38,7 @@ public class PersonFileDB implements PersonDAO{
     public void deletePerson(int id) {
         // This solution may not be optimal or pretty, but it works. It reads in an input file line by line, writing each line out to a temporary output file.
         List<Person> updated = new ArrayList<>();
-        for (Person person : updated) {
+        for (Person person : getPeople()) {
             if (id == person.getId()){
                 continue;
             } else {
@@ -56,8 +54,6 @@ public class PersonFileDB implements PersonDAO{
 
             myWriter.flush();
             myWriter.close();
-
-            System.out.println(updated);
 
         } catch (Exception e){
             System.out.println("Error:" + e.getMessage());
@@ -96,6 +92,11 @@ public class PersonFileDB implements PersonDAO{
 
     @Override
     public Person getPersonById(int id) {
-        return null;
+        for (Person p : getPeople()) {
+            if (id == p.getId()){
+                return p;
+            }
+        }
+        throw new NullPointerException("Person with that Id not found.");
     }
 }
